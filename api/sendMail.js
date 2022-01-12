@@ -72,6 +72,7 @@ const validate = (body) => {
 
 module.exports = async (req, res) => {
   try {
+    console.log(process.env.EMAIL_ADRESS);
     rateLimit(req.headers["x-real-ip"], 2);
     validate(req.body);
     const result = await formSubmit(req.body);
